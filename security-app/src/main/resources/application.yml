@@ -1,0 +1,24 @@
+server:
+  port: 9000
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:keystore/keystore.p12
+    key-store-password: password
+    key-alias: baeldung
+    enabled: true
+
+spring:
+  jpa:
+    generate-ddl: true
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: password
+    url: jdbc:postgresql://localhost:5432/security_app
+logging:
+  level:
+    root: DEBUG
+

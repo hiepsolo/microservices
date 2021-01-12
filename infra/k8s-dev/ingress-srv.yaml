@@ -16,5 +16,5 @@ spec:
                     servicePort: 3000
                 - path: /api/auth/?(.*)
                   backend:
-                    serviceName: auth-srv
-                    servicePort: 9000
+                    serviceName: auth-nodejs-srv
+                    servicePort: 3000

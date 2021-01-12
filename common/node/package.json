@@ -1,6 +1,6 @@
 {
     "name": "@eoet/common",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "files": [
@@ -9,7 +9,7 @@
     "scripts": {
         "build": "node_modules/.bin/rimraf ./build/* && tsc",
         "compile": "tsc",
-        "pub": "npm version patch && npm run build && npm publish"
+        "pub": "npm version patch && npm run build && npm publish --access=public"
     },
     "keywords": [],
     "author": "",

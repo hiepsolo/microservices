@@ -3,5 +3,9 @@ export enum Subjects {
     UserDeleted = 'user:deleted',
 
     PostUpdated = 'post:updated',
-    PostDeleted = 'post:deleted'
+    PostDeleted = 'post:deleted',
+    
+    CommentCreated = 'comment:created',
+    CommentUpdated = 'comment:updated',
+    CommentDeleted = 'comment:deleted'
 }

@@ -3,11 +3,11 @@ import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 
-import { currentUser, errorHandler, NotFoundError } from '@epitickets/common';
-import { createTicketRouter } from './routes/new';
-import { showTicketRouter } from './routes/show';
-import { indexTicketRouter } from './routes';
-import { updateTicketRouter } from './routes/update';
+import { currentUser, errorHandler, NotFoundError } from '@eoet/common';
+import { allCommentRouter } from './routes';
+import { createCommentRouter } from './routes/new';
+import { updateCommentRouter } from './routes/update';
+import { deleteCommentRouter } from './routes/delete';
 
 const app = express();
 app.set('trust proxy', true);
@@ -21,10 +21,10 @@ app.use(json());
 
 app.use(currentUser);
 
-app.use(createTicketRouter);
-app.use(showTicketRouter);
-app.use(indexTicketRouter);
-app.use(updateTicketRouter);
+app.use(createCommentRouter);
+app.use(allCommentRouter);
+app.use(updateCommentRouter);
+app.use(deleteCommentRouter);
 
 app.all('*', async (req, res) => {
     throw new NotFoundError();

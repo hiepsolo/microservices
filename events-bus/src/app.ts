@@ -4,11 +4,7 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 
 import { currentUser, errorHandler, NotFoundError } from '@eoet/common';
-import { allCommentRouter } from './routes';
-import { createCommentRouter } from './routes/new';
-import { updateCommentRouter } from './routes/update';
-import { deleteCommentRouter } from './routes/delete';
-import { eventsListenerRouter } from './routes/events';
+import { createEventRouter } from './routes/new';
 
 const app = express();
 app.set('trust proxy', true);
@@ -19,14 +15,11 @@ app.use(
     })
 );
 app.use(json());
+// app.use(cors());
 
 app.use(currentUser);
 
-app.use(createCommentRouter);
-app.use(allCommentRouter);
-app.use(updateCommentRouter);
-app.use(deleteCommentRouter);
-app.use(eventsListenerRouter);
+app.use(createEventRouter);
 
 app.all('*', async (req, res) => {
     throw new NotFoundError();

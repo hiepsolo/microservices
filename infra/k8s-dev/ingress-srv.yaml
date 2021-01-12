@@ -17,4 +17,4 @@ spec:
                 - path: /api/auth/?(.*)
                   backend:
                     serviceName: auth-srv
-                    servicePort: 8080
+                    servicePort: 9000

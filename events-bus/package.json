@@ -1,11 +1,11 @@
 {
-    "name": "comments",
+    "name": "events",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "start": "ts-node-dev src/index.ts --poll",
-        "docker": "docker build -t g8h9/comments . && docker push g8h9/comments",
+        "docker": "docker build -t g8h9/events . && docker push g8h9/events",
         "update": "npm update @eoet/common"
     },
     "keywords": [],

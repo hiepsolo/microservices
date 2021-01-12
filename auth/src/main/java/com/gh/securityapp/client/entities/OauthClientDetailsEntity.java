@@ -1,5 +1,6 @@
 package com.gh.securityapp.client.entities;
 
+import lombok.Builder;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "oauth_client_details", schema = "public", catalog = "security_app")
 @FieldDefaults(makeFinal = false)
+@Builder
 public class OauthClientDetailsEntity {
     private String clientId;
     private String resourceIds;

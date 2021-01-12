@@ -1,4 +1,4 @@
-package com.gh.securityapp;
+package com.gh.securityapostgrespp;
 
 import com.gh.securityapp.permission.PermissionDTO;
 import com.gh.securityapp.permission.services.PermissionService;
@@ -38,7 +38,7 @@ public class AppStartUpRunner implements CommandLineRunner {
                     clientDetails.setClientSecret("secret");
                     clientDetails.setScope(List.of("read", "write"));
                     clientDetails.setAuthorizedGrantTypes(List.of("password", "refresh_token", "client_credentials"));
-                    clientDetails.setAuthorities(List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
+                    clientDetails.setAuthorities(List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER")));
                     clientDetails.setAccessTokenValiditySeconds(300);
                     clientRegistrationService.addClientDetails(clientDetails);
                     return clientDetails.getClientId();
@@ -51,6 +51,10 @@ public class AppStartUpRunner implements CommandLineRunner {
                 .name("ROOT")
                 .enabled(true)
                 .permission(fullacessPermission.getId())
+                .build()));
+        RoleDTO defaultRole = roleService.findByName("USER").orElseGet(() -> roleService.create(RoleDTO.builder()
+                .name("USER")
+                .enabled(true)
                 .build()));
         userService.findByName("root").orElseGet(() -> userService.create(UserDTO.builder()
                 .username("root")

@@ -1,6 +1,6 @@
 package com.gh.securityapp.client.services;
 
-import com.gh.securityapp.client.OauthClientDTO;
+import com.gh.securityapp.client.dto.OauthClientDTO;
 import com.gh.securityapp.client.OauthClientRepository;
 import com.gh.securityapp.client.entities.OauthClientDetailsEntity;
 import com.gh.securityapp.client.mappers.OauthClientMapper;

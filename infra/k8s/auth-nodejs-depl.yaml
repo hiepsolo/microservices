@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: auth-nodejs-depl
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: auth-nodejs
+    template:
+        metadata:
+            labels:
+                app: auth-nodejs
+        spec:
+            containers:
+                - name: auth-nodejs
+                  image: g8h9/auth-nodejs
+                  env:
+                    - name: MONGO_URI
+                      value: 'mongodb://auth-nodejs-mongo-srv:27017/auth'
+                    - name: JWT_KEY
+                      value: 'a749fj623jd6'
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: auth-nodejs-srv
+spec:
+    selector:
+        app: auth-nodejs
+    ports:
+        - name: auth-nodejs
+          protocol: TCP
+          port: 3000
+          targetPort: 3000

@@ -25,3 +25,11 @@ build:
             manual:
                 - src: 'src/**/*.ts'
                   dest: .
+        - image: g8h9/auth-nodejs
+          context: auth-nodejs
+          docker:
+            dockerfile: Dockerfile
+          sync:
+            manual:
+                - src: 'src/**/*.ts'
+                  dest: .

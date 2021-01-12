@@ -6,7 +6,8 @@ server:
     key-store-password: password
     key-alias: baeldung
     enabled: true
-
+  servlet:
+    context-path: /api/auth
 spring:
   jpa:
     generate-ddl: true
@@ -15,9 +16,9 @@ spring:
       INDENT_OUTPUT: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
-    url: ${POSTGRES_URI}
+    username: admin
+    password: password
+    url: jdbc:postgresql://localhost:5432/security_app
 logging:
   level:
     root: DEBUG

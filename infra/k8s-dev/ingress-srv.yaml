@@ -14,3 +14,7 @@ spec:
                   backend:
                     serviceName: comments-srv
                     servicePort: 3000
+                - path: /api/auth/?(.*)
+                  backend:
+                    serviceName: auth-srv
+                    servicePort: 8080

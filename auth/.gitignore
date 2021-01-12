@@ -35,3 +35,11 @@ build/
 /mvnw
 /mvnw.cmd
 /data/
+
+HELP.md
+target/
+repository/
+repository.tar.gz
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
